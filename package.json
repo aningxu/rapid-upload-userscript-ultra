@@ -1,0 +1,41 @@
+{
+  "name": "rapidupload-userscript-ultra",
+  "version": "1.0.1",
+  "description": "快速转存网页上的百度网盘秒传链接",
+  "main": "app.tsx",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengzonefire/rapid-upload-userscript-ultra.git"
+  },
+  "author": "mengzonefire",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/mengzonefire/rapid-upload-userscript-ultra/issues"
+  },
+  "homepage": "https://greasyfork.org/zh-CN/scripts/459862",
+  "dependencies": {
+    "findandreplacedomtext": "^0.4.6",
+    "jquery": "^3.6.3",
+    "sweetalert2": "^11.4.16"
+  },
+  "devDependencies": {
+    "@types/findandreplacedomtext": "^0.4.1",
+    "@types/jquery": "^3.5.16",
+    "@types/tampermonkey": "^4.0.2",
+    "css-loader": "^6.7.1",
+    "mini-css-extract-plugin": "^2.6.0",
+    "node-sass": "^7.0.3",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "text-loader": "^0.0.1",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.3.5",
+    "webpack": "^5.51.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-userscript": "^2.5.8"
+  }
+}

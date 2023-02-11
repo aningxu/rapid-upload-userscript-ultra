@@ -1,0 +1,121 @@
+/*行样式*/
+.mzf_text {
+  font-feature-settings: "lnum" !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-family: inherit !important;
+  color: #545454 !important;
+  font-weight: 400 !important;
+  word-break: break-word !important;
+  -webkit-tap-highlight-color: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 34px !important;
+  display: block !important;
+  line-height: 34px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/*超链接样式*/
+.mzf_link {
+  font-family: inherit !important;
+  color: #09aaff !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+}
+
+/*折叠框箭头样式*/
+.mzf_arrow {
+  margin-right: 5px !important;
+  transform: rotate(180deg) !important;
+  transition: transform 0.2s !important;
+  fill: none !important;
+  stroke: gray !important;
+}
+
+/*折叠框*/
+.mzf_details {
+  cursor: pointer !important;
+}
+
+/*折叠框内容*/
+.mzf_content {
+  max-height: 0 !important;
+  margin: 0 !important;
+  transition: max-height 0.5s !important;
+  overflow: hidden !important;
+}
+
+/*折叠框动画*/
+.mzf_details[open] {
+  > summary > svg {
+    transform: rotate(0deg) !important;
+  }
+  + .mzf_content {
+    max-height: 100% !important;
+  }
+}
+
+/*html容器样式*/
+.mzf_html_container {
+  grid-template-columns: minmax(0, 100%) !important;
+  align-self: center !important;
+  justify-self: center !important;
+  width: 32em !important;
+  max-width: 100% !important;
+}
+
+/*自定义单选框样式*/
+.mzf_check {
+  display: inline-block !important;
+  background-color: white !important;
+  border-radius: 5px !important;
+  border: 1px solid #d3d3d3 !important;
+  width: 20px !important;
+  height: 20px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  line-height: 20px !important;
+  margin-left: 10px !important;
+}
+.mzf_check_ori:checked + .mzf_check {
+  background-color: #eee !important;
+}
+.mzf_check_ori:checked + .mzf_check::after {
+  content: "✓" !important;
+}
+.mzf_check_ori {
+  display: none !important;
+}
+
+/*按钮样式*/
+.mzf_btn {
+  text-align: center !important;
+  font-size: 0.85em !important;
+  color: #09aaff !important;
+  border: 2px solid #c3eaff !important;
+  border-radius: 4px !important;
+  margin-left: 5px !important;
+  padding: 10px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  cursor: pointer !important;
+}
+
+/*按钮样式2*/
+.mzf_btn2 {
+  text-align: center !important;
+  color: #09aaff !important;
+  margin-left: 5px !important;
+  cursor: pointer !important;
+}
+
+/*秒传链样式*/
+.mzf_bdlink {
+  font-family: inherit !important;
+  word-break: break-all !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+  color: #0070af !important;
+}
