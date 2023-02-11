@@ -6,7 +6,7 @@
 
 安装后会给页面中的秒传链接(目前仅支持梦姬标准码格式)添加超链接样式, 点击即可快速转存秒传, 无需访问网盘主页
 
-脚本源码托管在 <img src="https://github.githubassets.com/favicons/favicon.png" width='16'>[GitHub](https://github.com/mengzonefire/rapid-upload-userscript)
+脚本源码托管在 <img src="https://github.githubassets.com/favicons/favicon.png" width='16'>[GitHub](https://github.com/mengzonefire/rapid-upload-userscript-ultra)
 
 ## 运行效果
 
