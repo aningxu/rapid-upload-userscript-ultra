@@ -1,13 +1,14 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-02-12 03:45:00
+ * @LastEditTime: 2023-02-14 03:29:23
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
 
 import $ from "jquery";
-import appCss from "@/css/app.scss";
+import appCss from "@/css/app.css";
+import appSCss from "@/css/app.scss";
 import { ATAGListener, run, getBdstoken } from "./common/utils";
 import {
   donateVer,
@@ -31,6 +32,7 @@ function inital(): void {
     );
   // 注入样式
   GM_addStyle(appCss);
+  GM_addStyle(appSCss);
   // 预先绑定好按钮事件
   $(document).on("click", "a.mzf_bdlink", ATAGListener);
   $(document).on("click", "#kill_donate", function () {

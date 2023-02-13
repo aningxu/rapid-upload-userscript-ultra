@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.0.1
+// @version         1.0.2
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -15629,7 +15629,14 @@ if (typeof this !== 'undefined' && this.Sweetalert2){this.swal = this.sweetAlert
 /***/ 65:
 /***/ ((module) => {
 
-module.exports = "﻿.mzf_text{font-feature-settings:\"lnum\" !important;-webkit-font-smoothing:antialiased !important;font-family:inherit !important;color:#545454 !important;font-weight:400 !important;word-break:break-word !important;-webkit-tap-highlight-color:rgba(0,0,0,0) !important;margin:0 !important;padding:0 !important;width:100% !important;height:34px !important;display:block !important;line-height:34px !important;text-align:center !important;white-space:nowrap !important}.mzf_link{font-family:inherit !important;color:#09aaff !important;text-decoration:none !important;vertical-align:baseline !important}.mzf_arrow{margin-right:5px !important;transform:rotate(180deg) !important;transition:transform .2s !important;fill:none !important;stroke:gray !important}.mzf_details{cursor:pointer !important}.mzf_content{max-height:0 !important;margin:0 !important;transition:max-height .5s !important;overflow:hidden !important}.mzf_details[open]>summary>svg{transform:rotate(0deg) !important}.mzf_details[open]+.mzf_content{max-height:100% !important}.mzf_html_container{grid-template-columns:minmax(0, 100%) !important;align-self:center !important;justify-self:center !important;width:32em !important;max-width:100% !important}.mzf_check{display:inline-block !important;background-color:#fff !important;border-radius:5px !important;border:1px solid #d3d3d3 !important;width:20px !important;height:20px !important;text-align:center !important;vertical-align:middle !important;line-height:20px !important;margin-left:10px !important}.mzf_check_ori:checked+.mzf_check{background-color:#eee !important}.mzf_check_ori:checked+.mzf_check::after{content:\"✓\" !important}.mzf_check_ori{display:none !important}.mzf_btn{text-align:center !important;font-size:.85em !important;color:#09aaff !important;border:2px solid #c3eaff !important;border-radius:4px !important;margin-left:5px !important;padding:10px !important;padding-top:5px !important;padding-bottom:5px !important;cursor:pointer !important}.mzf_btn2{text-align:center !important;color:#09aaff !important;margin-left:5px !important;cursor:pointer !important}.mzf_bdlink{font-family:inherit !important;word-break:break-all !important;text-decoration:underline !important;cursor:pointer !important;color:#0070af !important}"
+module.exports = ".mzf_btn{text-align:center !important;font-size:.85em !important;color:#09aaff !important;border:2px solid #c3eaff !important;border-radius:4px !important;margin-left:5px !important;padding:10px !important;padding-top:5px !important;padding-bottom:5px !important;cursor:pointer !important}.mzf_btn2{text-align:center !important;color:#09aaff !important;margin-left:5px !important;cursor:pointer !important}.mzf_link{font-family:inherit !important;color:#09aaff !important;text-decoration:none !important;vertical-align:baseline !important}.mzf_text{font-feature-settings:\"lnum\" !important;-webkit-font-smoothing:antialiased !important;font-family:inherit !important;color:#545454 !important;font-weight:400 !important;word-break:break-word !important;-webkit-tap-highlight-color:rgba(0,0,0,0) !important;margin:0 !important;padding:0 !important;width:100% !important;height:34px !important;display:block !important;line-height:34px !important;text-align:center !important;white-space:nowrap !important}.mzf_new_btn{-webkit-font-smoothing:antialiased !important;-webkit-tap-highlight-color:rgba(0,0,0,0) !important;vertical-align:middle !important;font:inherit !important;overflow:visible !important;text-transform:none !important;font-family:SFUIText,PingFangSC-Regular,Helvetica Neue,Helvetica,Arial,sans-serif !important;display:inline-block !important;line-height:1 !important;white-space:nowrap !important;cursor:pointer !important;background:#fff !important;text-align:center !important;box-sizing:border-box !important;outline:0 !important;margin:0 !important;transition:.1s !important;color:#fff !important;background-color:#06a7ff !important;font-weight:700 !important;padding:8px 24px !important;height:32px !important;font-size:14px !important;border-radius:16px !important;border:none !important}.mzf_arrow{margin-right:5px !important;transform:rotate(180deg) !important;transition:transform .2s !important;fill:none !important;stroke:gray !important}.mzf_details{cursor:pointer !important}.mzf_content{max-height:0 !important;margin:0 !important;transition:max-height .5s !important;overflow:hidden !important}.mzf_details[open]>summary>svg{transform:rotate(0deg) !important}.mzf_details[open]+.mzf_content{max-height:100% !important}.mzf_html_container{grid-template-columns:minmax(0, 100%) !important;align-self:center !important;justify-self:center !important;width:32em !important;max-width:100% !important}.mzf_updateInfo{border:1px #000 !important;width:100% !important;margin:0 auto !important}.mzf_updateInfo span{vertical-align:baseline !important}.mzf_bdlink{font-family:inherit !important;word-break:break-all !important;text-decoration:underline !important;cursor:pointer !important;color:#0070af !important}"
+
+/***/ }),
+
+/***/ 149:
+/***/ ((module) => {
+
+module.exports = "/*自定义单选框样式*/\n.mzf_check {\n  display: inline-block !important;\n  background-color: white !important;\n  border-radius: 5px !important;\n  border: 1px solid #d3d3d3 !important;\n  width: 20px !important;\n  height: 20px !important;\n  text-align: center !important;\n  vertical-align: middle !important;\n  line-height: 20px !important;\n  margin-left: 10px !important;\n}\n.mzf_check_ori:checked + .mzf_check {\n  background-color: #eee !important;\n}\n.mzf_check_ori:checked + .mzf_check::after {\n  content: \"✓\" !important;\n}\n.mzf_check_ori {\n  display: none !important;\n}\n"
 
 /***/ })
 
@@ -15698,19 +15705,22 @@ var __webpack_exports__ = {};
 // EXTERNAL MODULE: ./node_modules/jquery/dist/jquery.js
 var jquery = __webpack_require__(755);
 var jquery_default = /*#__PURE__*/__webpack_require__.n(jquery);
-// EXTERNAL MODULE: ./src/css/app.scss
-var app = __webpack_require__(65);
+// EXTERNAL MODULE: ./src/css/app.css
+var app = __webpack_require__(149);
 var app_default = /*#__PURE__*/__webpack_require__.n(app);
+// EXTERNAL MODULE: ./src/css/app.scss
+var css_app = __webpack_require__(65);
+var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
 ;// CONCATENATED MODULE: ./src/common/const.tsx
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-02-12 03:42:08
+ * @LastEditTime: 2023-02-14 03:38:09
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var version = "1.0.1";
+var version = "1.0.2";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var donatePage = "https://afdian.net/@mengzonefire";
@@ -16501,10 +16511,11 @@ function run() {
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-02-12 03:45:00
+ * @LastEditTime: 2023-02-14 03:29:23
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
+
 
 
 
@@ -16519,6 +16530,7 @@ function inital() {
         }, function (_errno) { });
     // 注入样式
     GM_addStyle((app_default()));
+    GM_addStyle((css_app_default()));
     // 预先绑定好按钮事件
     jquery_default()(document).on("click", "a.mzf_bdlink", ATAGListener);
     jquery_default()(document).on("click", "#kill_donate", function () {

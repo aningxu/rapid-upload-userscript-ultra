@@ -1,0 +1,22 @@
+/*自定义单选框样式*/
+.mzf_check {
+  display: inline-block !important;
+  background-color: white !important;
+  border-radius: 5px !important;
+  border: 1px solid #d3d3d3 !important;
+  width: 20px !important;
+  height: 20px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  line-height: 20px !important;
+  margin-left: 10px !important;
+}
+.mzf_check_ori:checked + .mzf_check {
+  background-color: #eee !important;
+}
+.mzf_check_ori:checked + .mzf_check::after {
+  content: "✓" !important;
+}
+.mzf_check_ori {
+  display: none !important;
+}

@@ -1,3 +1,33 @@
+/*按钮样式*/
+.mzf_btn {
+  text-align: center !important;
+  font-size: 0.85em !important;
+  color: #09aaff !important;
+  border: 2px solid #c3eaff !important;
+  border-radius: 4px !important;
+  margin-left: 5px !important;
+  padding: 10px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  cursor: pointer !important;
+}
+
+/*按钮样式2*/
+.mzf_btn2 {
+  text-align: center !important;
+  color: #09aaff !important;
+  margin-left: 5px !important;
+  cursor: pointer !important;
+}
+
+/*超链接样式*/
+.mzf_link {
+  font-family: inherit !important;
+  color: #09aaff !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+}
+
 /*行样式*/
 .mzf_text {
   font-feature-settings: "lnum" !important;
@@ -17,12 +47,34 @@
   white-space: nowrap !important;
 }
 
-/*超链接样式*/
-.mzf_link {
-  font-family: inherit !important;
-  color: #09aaff !important;
-  text-decoration: none !important;
-  vertical-align: baseline !important;
+/*新版度盘页面的按钮样式(直接拷贝)*/
+.mzf_new_btn {
+  -webkit-font-smoothing: antialiased !important;
+  -webkit-tap-highlight-color: transparent !important;
+  vertical-align: middle !important;
+  font: inherit !important;
+  overflow: visible !important;
+  text-transform: none !important;
+  font-family: SFUIText, PingFangSC-Regular, Helvetica Neue, Helvetica, Arial,
+    sans-serif !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  background: #fff !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  outline: 0 !important;
+  margin: 0 !important;
+  transition: 0.1s !important;
+  color: #fff !important;
+  background-color: #06a7ff !important;
+  font-weight: 700 !important;
+  padding: 8px 24px !important;
+  height: 32px !important;
+  font-size: 14px !important;
+  border-radius: 16px !important;
+  border: none !important;
 }
 
 /*折叠框箭头样式*/
@@ -66,49 +118,14 @@
   max-width: 100% !important;
 }
 
-/*自定义单选框样式*/
-.mzf_check {
-  display: inline-block !important;
-  background-color: white !important;
-  border-radius: 5px !important;
-  border: 1px solid #d3d3d3 !important;
-  width: 20px !important;
-  height: 20px !important;
-  text-align: center !important;
-  vertical-align: middle !important;
-  line-height: 20px !important;
-  margin-left: 10px !important;
-}
-.mzf_check_ori:checked + .mzf_check {
-  background-color: #eee !important;
-}
-.mzf_check_ori:checked + .mzf_check::after {
-  content: "✓" !important;
-}
-.mzf_check_ori {
-  display: none !important;
+.mzf_updateInfo {
+  border: 1px #000000 !important;
+  width: 100% !important;
+  margin: 0 auto !important;
 }
 
-/*按钮样式*/
-.mzf_btn {
-  text-align: center !important;
-  font-size: 0.85em !important;
-  color: #09aaff !important;
-  border: 2px solid #c3eaff !important;
-  border-radius: 4px !important;
-  margin-left: 5px !important;
-  padding: 10px !important;
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
-  cursor: pointer !important;
-}
-
-/*按钮样式2*/
-.mzf_btn2 {
-  text-align: center !important;
-  color: #09aaff !important;
-  margin-left: 5px !important;
-  cursor: pointer !important;
+.mzf_updateInfo span {
+  vertical-align: baseline !important;
 }
 
 /*秒传链样式*/
