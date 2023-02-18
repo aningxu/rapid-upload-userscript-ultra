@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-02-14 03:29:23
+ * @LastEditTime: 2023-02-18 21:43:23
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
@@ -21,6 +21,12 @@ import {
 import { swalInstance } from "./common/context";
 
 function inital(): void {
+  // 添加swal参数以防止部分页面下body样式突变(现象: 点开弹窗后原页面样式会突然变化)
+  swalInstance.swalGlobalArgs = {
+    heightAuto: false,
+    scrollbarPadding: false,
+  };
+
   // 获取bdstoken
   if (!globalConfig.bdstoken)
     getBdstoken(

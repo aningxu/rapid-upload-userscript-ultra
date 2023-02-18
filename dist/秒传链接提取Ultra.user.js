@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.0.2
+// @version         1.0.3
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -15715,12 +15715,12 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-02-14 03:38:09
+ * @LastEditTime: 2023-02-18 21:43:56
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var version = "1.0.2";
+var version = "1.0.3";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var donatePage = "https://afdian.net/@mengzonefire";
@@ -16511,7 +16511,7 @@ function run() {
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-02-14 03:29:23
+ * @LastEditTime: 2023-02-18 21:43:23
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
@@ -16522,6 +16522,11 @@ function run() {
 
 
 function inital() {
+    // 添加swal参数以防止部分页面下body样式突变(现象: 点开弹窗后原页面样式会突然变化)
+    swalInstance.swalGlobalArgs = {
+        heightAuto: false,
+        scrollbarPadding: false,
+    };
     // 获取bdstoken
     if (!globalConfig.bdstoken)
         getBdstoken(function (bdstoken) {
