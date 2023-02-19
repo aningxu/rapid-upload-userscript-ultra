@@ -10,14 +10,14 @@
 
 ## 运行效果
 
-![](https://imgsrc.baidu.com/super/pic/item/a2cc7cd98d1001e979a3d7c9fd0e7bec55e7975d.jpg)
+![](https://bj.bcebos.com/baidu-rmb-video-cover-1/41921a1b3b544039c06364dcbb83afca.jpeg)
 
-![](https://imgsrc.baidu.com/super/pic/item/2f738bd4b31c870179297120627f9e2f0608ff5e.jpg)
+![](https://bj.bcebos.com/baidu-rmb-video-cover-1/2741eb987eba5d1df3b6f8b433e6f3a3.jpeg)
 
 ## 设置页
 
 在油猴插件菜单有设置按钮, 点击即可打开设置页
 
-![](https://imgsrc.baidu.com/super/pic/item/dcc451da81cb39db160aa79095160924aa18302a.jpg)
+![](https://bj.bcebos.com/baidu-rmb-video-cover-1/f1fed8cf028ba9be1f55a2d05918565b.jpeg)
 
-![](https://imgsrc.baidu.com/super/pic/item/0df431adcbef760972955a596bdda3cc7dd99e5e.jpg)
+![](https://bj.bcebos.com/baidu-rmb-video-cover-1/c249a0d92072527a2268856d2a55f138.png)

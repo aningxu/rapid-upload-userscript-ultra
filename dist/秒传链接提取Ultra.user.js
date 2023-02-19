@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.0.3
+// @version         1.0.4
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -15698,6 +15698,91 @@ module.exports = "/*自定义单选框样式*/\n.mzf_check {\n  display: inline-
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
+(() => {
+(function () {
+    "use strict";
+  
+    // save the original methods before overwriting them
+    [Document, Window, Element].forEach((cst) => {
+      if (typeof cst === "function") {
+        cst.prototype._addEventListener = cst.prototype.addEventListener;
+        cst.prototype._removeEventListener = cst.prototype.removeEventListener;
+  
+        /**
+         * [addEventListener description]
+         * @param {[type]}  type       [description]
+         * @param {[type]}  listener   [description]
+         * @param {Boolean} useCapture [description]
+         */
+        cst.prototype.addEventListener = function (
+          type,
+          listener,
+          useCapture = false
+        ) {
+          // declare listener
+          this._addEventListener(type, listener, useCapture);
+  
+          if (!this.eventListenerList) this.eventListenerList = {};
+          if (!this.eventListenerList[type]) this.eventListenerList[type] = [];
+  
+          // add listener to  event tracking list
+          this.eventListenerList[type].push({ type, listener, useCapture });
+        };
+  
+        /**
+         * [removeEventListener description]
+         * @param  {[type]}  type       [description]
+         * @param  {[type]}  listener   [description]
+         * @param  {Boolean} useCapture [description]
+         * @return {[type]}             [description]
+         */
+        cst.prototype.removeEventListener = function (
+          type,
+          listener,
+          useCapture = false
+        ) {
+          // remove listener
+          this._removeEventListener(type, listener, useCapture);
+  
+          if (!this.eventListenerList) this.eventListenerList = {};
+          if (!this.eventListenerList[type]) this.eventListenerList[type] = [];
+  
+          // Find the event in the list, If a listener is registered twice, one
+          // with capture and one without, remove each one separately. Removal of
+          // a capturing listener does not affect a non-capturing version of the
+          // same listener, and vice versa.
+          for (let i = 0; i < this.eventListenerList[type].length; i++) {
+            if (
+              this.eventListenerList[type][i].listener === listener &&
+              this.eventListenerList[type][i].useCapture === useCapture
+            ) {
+              this.eventListenerList[type].splice(i, 1);
+              break;
+            }
+          }
+          // if no more events of the removed event type are left,remove the group
+          if (this.eventListenerList[type].length == 0)
+            delete this.eventListenerList[type];
+        };
+  
+        /**
+         * [getEventListeners description]
+         * @param  {[type]} type [description]
+         * @return {[type]}      [description]
+         */
+        cst.prototype.getEventListeners = function (type) {
+          if (!this.eventListenerList) this.eventListenerList = {};
+  
+          // return reqested listeners type or all them
+          if (type === undefined) return this.eventListenerList;
+          return this.eventListenerList[type];
+        };
+      }
+    });
+  })();
+})();
+
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
@@ -16008,7 +16093,7 @@ DuParser.parseDu_v4 = function parseDu_v3(szUrl) {
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-26 12:16:57
- * @LastEditTime: 2023-02-12 04:06:40
+ * @LastEditTime: 2023-02-19 11:35:21
  * @LastEditors: mengzonefire
  * @Description: 存放各Swal弹窗的固定参数配置
  */
@@ -16020,7 +16105,9 @@ var SwalConfig = {
         html: "<textarea id=\"mzf-rapid-input\" class=\"swal2-textarea\" placeholder=\"\u00B7 \u652F\u6301\u6279\u91CF\u8F6C\u5B58\u591A\u6761\u79D2\u4F20(\u6362\u884C\u5206\u9694)\n\u00B7 \u652F\u6301PanDL/\u6E38\u4FA0/\u6807\u51C6\u7801/PCS-GO\u683C\u5F0F\n\u00B7 \u652F\u6301\u8F93\u5165\u4E00\u952E\u79D2\u4F20(\u81EA\u52A8\u8F6C\u6362\u4E3A\u666E\u901A\u79D2\u4F20)\n\u00B7 \u53EF\u5728\u8BBE\u7F6E\u9875\u5F00\u542F\u76D1\u542C\u526A\u8D34\u677F,\u81EA\u52A8\u7C98\u8D34\u79D2\u4F20\n\u00B7 \u8F93\u5165set\u8FDB\u5165\u8BBE\u7F6E\u9875,gen\u8FDB\u5165\u751F\u6210\u9875,info\u8FDB\u5165\u7248\u672C\u4FE1\u606F\u9875\" style=\"display: flex;padding: 0.4em;\"></textarea>\n    <input id=\"mzf-path-input\" class=\"swal2-input\" placeholder=\"\u4FDD\u5B58\u8DEF\u5F84, \u793A\u4F8B: /GTA5/, \u7559\u7A7A\u4FDD\u5B58\u5728\u6839\u76EE\u5F55\" style=\"display: flex;margin-top: 10px;\">",
         confirmButtonText: "确定",
         cancelButtonText: "取消",
-        customClass: { htmlContainer: "mzf_html_container" },
+        customClass: {
+            htmlContainer: "mzf_html_container",
+        },
     },
     processView: {
         showCloseButton: true,
@@ -16049,7 +16136,7 @@ var sweetalert2_all_default = /*#__PURE__*/__webpack_require__.n(sweetalert2_all
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-25 08:34:46
- * @LastEditTime: 2023-02-12 04:09:23
+ * @LastEditTime: 2023-02-19 13:34:09
  * @LastEditors: mengzonefire
  * @Description: 定义全套的前台弹窗逻辑, 在Swal的回调函数内调用***Task类内定义的任务代码
  */
@@ -16160,6 +16247,13 @@ var Swalbase = /** @class */ (function () {
                         .css("margin", "0");
                     jquery_default()("#mzf-rapid-input")[0].value = inputValue;
                     jquery_default()("#mzf-path-input")[0].value = pathValue;
+                    // 解绑可能影响输入框聚焦的document事件
+                    var focusListener = document.getEventListeners("focus");
+                    if (focusListener)
+                        for (var _i = 0, focusListener_1 = focusListener; _i < focusListener_1.length; _i++) {
+                            var target = focusListener_1[_i];
+                            document.removeEventListener("focus", target.listener, true);
+                        }
                 };
                 sweetalert2_all_default().fire(this.mergeArg(SwalConfig.inputView, {
                     preConfirm: preConfirm,
@@ -16511,7 +16605,7 @@ function run() {
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-02-18 21:43:23
+ * @LastEditTime: 2023-02-19 13:18:29
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
@@ -16526,6 +16620,7 @@ function inital() {
     swalInstance.swalGlobalArgs = {
         heightAuto: false,
         scrollbarPadding: false,
+        keydownListenerCapture: true,
     };
     // 获取bdstoken
     if (!globalConfig.bdstoken)

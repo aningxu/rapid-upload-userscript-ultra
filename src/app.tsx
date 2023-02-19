@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-02-18 21:43:23
+ * @LastEditTime: 2023-02-19 13:18:29
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
@@ -25,8 +25,8 @@ function inital(): void {
   swalInstance.swalGlobalArgs = {
     heightAuto: false,
     scrollbarPadding: false,
+    keydownListenerCapture: true,
   };
-
   // 获取bdstoken
   if (!globalConfig.bdstoken)
     getBdstoken(

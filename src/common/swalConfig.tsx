@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-26 12:16:57
- * @LastEditTime: 2023-02-12 04:06:40
+ * @LastEditTime: 2023-02-19 11:35:21
  * @LastEditors: mengzonefire
  * @Description: 存放各Swal弹窗的固定参数配置
  */
@@ -16,7 +16,9 @@ export const SwalConfig = {
     <input id="mzf-path-input" class="swal2-input" placeholder="保存路径, 示例: /GTA5/, 留空保存在根目录" style="display: flex;margin-top: 10px;">`,
     confirmButtonText: "确定",
     cancelButtonText: "取消",
-    customClass: { htmlContainer: "mzf_html_container" },
+    customClass: {
+      htmlContainer: "mzf_html_container",
+    },
   },
 
   processView: {

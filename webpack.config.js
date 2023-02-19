@@ -5,7 +5,10 @@ const path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: path.resolve(__dirname, "src", "app.tsx"),
+  entry: [
+    path.resolve(__dirname, "src", "common", "getEventListeners.js"),
+    path.resolve(__dirname, "src", "app.tsx"),
+  ],
   externalsPresets: { node: true },
   resolve: {
     extensions: [".js", ".ts", ".tsx", ".json"],

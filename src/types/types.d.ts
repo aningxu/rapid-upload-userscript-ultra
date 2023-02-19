@@ -15,4 +15,7 @@ declare global {
     value: string;
     checked: boolean;
   }
+  interface Document {
+    getEventListeners: any;
+  }
 }

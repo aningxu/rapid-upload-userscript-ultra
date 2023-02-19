@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-25 08:34:46
- * @LastEditTime: 2023-02-12 04:09:23
+ * @LastEditTime: 2023-02-19 13:34:09
  * @LastEditors: mengzonefire
  * @Description: 定义全套的前台弹窗逻辑, 在Swal的回调函数内调用***Task类内定义的任务代码
  */
@@ -81,6 +81,11 @@ export default class Swalbase {
         .css("margin", "0");
       $("#mzf-rapid-input")[0].value = inputValue;
       $("#mzf-path-input")[0].value = pathValue;
+      // 解绑可能影响输入框聚焦的document事件
+      let focusListener = document.getEventListeners("focus");
+      if (focusListener)
+        for (let target of focusListener)
+          document.removeEventListener("focus", target.listener, true);
     };
     Swal.fire(
       this.mergeArg(SwalConfig.inputView, {

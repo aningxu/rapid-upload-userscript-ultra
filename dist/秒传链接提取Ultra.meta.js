@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.0.3
+// @version         1.0.4
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
