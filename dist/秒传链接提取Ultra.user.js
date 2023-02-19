@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.0.4
+// @version         1.0.5
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -15701,53 +15701,56 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
 (function () {
-    "use strict";
-  
-    // save the original methods before overwriting them
-    [Document, Window, Element].forEach((cst) => {
-      if (typeof cst === "function") {
-        cst.prototype._addEventListener = cst.prototype.addEventListener;
-        cst.prototype._removeEventListener = cst.prototype.removeEventListener;
-  
-        /**
-         * [addEventListener description]
-         * @param {[type]}  type       [description]
-         * @param {[type]}  listener   [description]
-         * @param {Boolean} useCapture [description]
-         */
-        cst.prototype.addEventListener = function (
-          type,
-          listener,
-          useCapture = false
-        ) {
+  "use strict";
+
+  // save the original methods before overwriting them
+  [Document, Window, Element].forEach((cst) => {
+    if (typeof cst === "function") {
+      cst.prototype._addEventListener = cst.prototype.addEventListener;
+      cst.prototype._removeEventListener = cst.prototype.removeEventListener;
+
+      /**
+       * [addEventListener description]
+       * @param {[type]}  type       [description]
+       * @param {[type]}  listener   [description]
+       * @param {Boolean} useCapture [description]
+       */
+      cst.prototype.addEventListener = function (
+        type,
+        listener,
+        useCapture = false
+      ) {
+        try {
           // declare listener
           this._addEventListener(type, listener, useCapture);
-  
+
           if (!this.eventListenerList) this.eventListenerList = {};
           if (!this.eventListenerList[type]) this.eventListenerList[type] = [];
-  
+
           // add listener to  event tracking list
           this.eventListenerList[type].push({ type, listener, useCapture });
-        };
-  
-        /**
-         * [removeEventListener description]
-         * @param  {[type]}  type       [description]
-         * @param  {[type]}  listener   [description]
-         * @param  {Boolean} useCapture [description]
-         * @return {[type]}             [description]
-         */
-        cst.prototype.removeEventListener = function (
-          type,
-          listener,
-          useCapture = false
-        ) {
+        } catch {}
+      };
+
+      /**
+       * [removeEventListener description]
+       * @param  {[type]}  type       [description]
+       * @param  {[type]}  listener   [description]
+       * @param  {Boolean} useCapture [description]
+       * @return {[type]}             [description]
+       */
+      cst.prototype.removeEventListener = function (
+        type,
+        listener,
+        useCapture = false
+      ) {
+        try {
           // remove listener
           this._removeEventListener(type, listener, useCapture);
-  
+
           if (!this.eventListenerList) this.eventListenerList = {};
           if (!this.eventListenerList[type]) this.eventListenerList[type] = [];
-  
+
           // Find the event in the list, If a listener is registered twice, one
           // with capture and one without, remove each one separately. Removal of
           // a capturing listener does not affect a non-capturing version of the
@@ -15764,23 +15767,25 @@ var __webpack_exports__ = {};
           // if no more events of the removed event type are left,remove the group
           if (this.eventListenerList[type].length == 0)
             delete this.eventListenerList[type];
-        };
-  
-        /**
-         * [getEventListeners description]
-         * @param  {[type]} type [description]
-         * @return {[type]}      [description]
-         */
-        cst.prototype.getEventListeners = function (type) {
-          if (!this.eventListenerList) this.eventListenerList = {};
-  
-          // return reqested listeners type or all them
-          if (type === undefined) return this.eventListenerList;
-          return this.eventListenerList[type];
-        };
-      }
-    });
-  })();
+        } catch {}
+      };
+
+      /**
+       * [getEventListeners description]
+       * @param  {[type]} type [description]
+       * @return {[type]}      [description]
+       */
+      cst.prototype.getEventListeners = function (type) {
+        if (!this.eventListenerList) this.eventListenerList = {};
+
+        // return reqested listeners type or all them
+        if (type === undefined) return this.eventListenerList;
+        return this.eventListenerList[type];
+      };
+    }
+  });
+})();
+
 })();
 
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -15800,12 +15805,12 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-02-18 21:43:56
+ * @LastEditTime: 2023-02-19 13:53:34
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var version = "1.0.3";
+var version = "1.0.5";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var donatePage = "https://afdian.net/@mengzonefire";
