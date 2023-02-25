@@ -2,7 +2,7 @@
   "use strict";
 
   // save the original methods before overwriting them
-  [Document, Window, Element].forEach((cst) => {
+  [Document].forEach((cst) => {
     if (typeof cst === "function") {
       cst.prototype._addEventListener = cst.prototype.addEventListener;
       cst.prototype._removeEventListener = cst.prototype.removeEventListener;

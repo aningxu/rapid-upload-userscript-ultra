@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.0.5
+// @version         1.0.6
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -15704,7 +15704,7 @@ var __webpack_exports__ = {};
   "use strict";
 
   // save the original methods before overwriting them
-  [Document, Window, Element].forEach((cst) => {
+  [Document].forEach((cst) => {
     if (typeof cst === "function") {
       cst.prototype._addEventListener = cst.prototype.addEventListener;
       cst.prototype._removeEventListener = cst.prototype.removeEventListener;
