@@ -102,6 +102,10 @@ module.exports = {
         ],
         "run-at": "document-start",
         connect: ["pan.baidu.com"],
+        downloadURL:
+          "https://greasyfork.org/scripts/459862/code/%E7%A7%92%E4%BC%A0%E9%93%BE%E6%8E%A5%E6%8F%90%E5%8F%96Ultra.user.js",
+        updateURL:
+          "https://greasyfork.org/scripts/459862/code/%E7%A7%92%E4%BC%A0%E9%93%BE%E6%8E%A5%E6%8F%90%E5%8F%96Ultra.user.js",
       },
       pretty: true,
     }),

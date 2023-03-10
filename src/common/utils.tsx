@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-02-12 03:44:22
+ * @LastEditTime: 2023-03-10 19:46:39
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
@@ -186,7 +186,7 @@ export function parsefileInfo(fileInfoList: Array<FileInfo>) {
     )}):</b>${copyFailBranchList}</summary></details><div class="mzf_content">${failBranchInfo}</div>`;
   }
   if (failedInfo)
-    failedInfo = `<details class="mzf_details"><summary><svg class="mzf_arrow" width="16" height="7"><polyline points="0,0 8,7 16,0"/></svg><b>失败文件列表(点击展开):</b>${copyFailList}</summary></details><div class="mzf_content">${failedInfo}</div>`;
+    failedInfo = `<details class="mzf_details"><summary><svg class="mzf_arrow" width="16" height="7"><polyline points="0,0 8,7 16,0"/></svg><b>失败文件列表(点这里看失败原因):</b>${copyFailList}</summary></details><div class="mzf_content">${failedInfo}</div>`;
   if (successInfo)
     successInfo = `<details class="mzf_details"><summary><svg class="mzf_arrow" width="16" height="7"><polyline points="0,0 8,7 16,0"/></svg><b>成功文件列表(点击展开):</b>${copySuccessList}</summary></details><div class="mzf_content">${successInfo}</div>`;
   bdcode = bdcode.trim();

@@ -1,13 +1,13 @@
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-02-19 13:53:34
+ * @LastEditTime: 2023-03-10 20:20:13
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 
 export const TAG = "[秒传链接提取Ultra by mengzonefire]";
-export const version = "1.0.5";
+export const version = "1.0.7";
 export const donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 export const feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 export const donatePage = "https://afdian.net/@mengzonefire";

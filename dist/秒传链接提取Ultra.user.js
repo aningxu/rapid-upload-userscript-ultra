@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.0.6
+// @version         1.0.7
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -28,6 +28,8 @@
 // @grant           GM_registerMenuCommand
 // @run-at          document-start
 // @connect         pan.baidu.com
+// @downloadURL     https://greasyfork.org/scripts/459862/code/%E7%A7%92%E4%BC%A0%E9%93%BE%E6%8E%A5%E6%8F%90%E5%8F%96Ultra.user.js
+// @updateURL       https://greasyfork.org/scripts/459862/code/%E7%A7%92%E4%BC%A0%E9%93%BE%E6%8E%A5%E6%8F%90%E5%8F%96Ultra.user.js
 // ==/UserScript==
 
 /******/ (() => { // webpackBootstrap
@@ -15805,12 +15807,12 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-02-19 13:53:34
+ * @LastEditTime: 2023-03-10 20:20:13
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var version = "1.0.5";
+var version = "1.0.7";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var donatePage = "https://afdian.net/@mengzonefire";
@@ -16406,7 +16408,7 @@ var swalInstance = new SwalBase(new rapiduploadTask());
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-02-12 03:44:22
+ * @LastEditTime: 2023-03-10 19:46:39
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
@@ -16572,7 +16574,7 @@ function parsefileInfo(fileInfoList) {
         _loop_1(failCode);
     }
     if (failedInfo)
-        failedInfo = "<details class=\"mzf_details\"><summary><svg class=\"mzf_arrow\" width=\"16\" height=\"7\"><polyline points=\"0,0 8,7 16,0\"/></svg><b>\u5931\u8D25\u6587\u4EF6\u5217\u8868(\u70B9\u51FB\u5C55\u5F00):</b>".concat(copyFailList, "</summary></details><div class=\"mzf_content\">").concat(failedInfo, "</div>");
+        failedInfo = "<details class=\"mzf_details\"><summary><svg class=\"mzf_arrow\" width=\"16\" height=\"7\"><polyline points=\"0,0 8,7 16,0\"/></svg><b>\u5931\u8D25\u6587\u4EF6\u5217\u8868(\u70B9\u8FD9\u91CC\u770B\u5931\u8D25\u539F\u56E0):</b>".concat(copyFailList, "</summary></details><div class=\"mzf_content\">").concat(failedInfo, "</div>");
     if (successInfo)
         successInfo = "<details class=\"mzf_details\"><summary><svg class=\"mzf_arrow\" width=\"16\" height=\"7\"><polyline points=\"0,0 8,7 16,0\"/></svg><b>\u6210\u529F\u6587\u4EF6\u5217\u8868(\u70B9\u51FB\u5C55\u5F00):</b>".concat(copySuccessList, "</summary></details><div class=\"mzf_content\">").concat(successInfo, "</div>");
     bdcode = bdcode.trim();
@@ -16610,7 +16612,7 @@ function run() {
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-02-19 13:18:29
+ * @LastEditTime: 2023-03-10 20:20:33
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
@@ -16621,6 +16623,7 @@ function run() {
 
 
 function inital() {
+    console.info("%s version: %s 正在运行", TAG, version);
     // 添加swal参数以防止部分页面下body样式突变(现象: 点开弹窗后原页面样式会突然变化)
     swalInstance.swalGlobalArgs = {
         heightAuto: false,
