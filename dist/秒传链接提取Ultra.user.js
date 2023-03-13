@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.0.7
+// @version         1.0.8
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -15812,7 +15812,7 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var version = "1.0.7";
+var version = "1.0.8";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var donatePage = "https://afdian.net/@mengzonefire";
@@ -16408,7 +16408,7 @@ var swalInstance = new SwalBase(new rapiduploadTask());
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-03-10 19:46:39
+ * @LastEditTime: 2023-03-13 22:34:15
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
@@ -16441,7 +16441,11 @@ function addBdlinkWrap() {
         wrapClass: "mzf_bdlink",
         filterElements: function (ele) {
             var _a;
-            return !(((_a = ele.classList) === null || _a === void 0 ? void 0 : _a.length) && ele.classList[0] === "mzf_bdlink");
+            // 过滤可编辑的dom元素
+            return (ele.matches &&
+                !ele.matches("a, input, textarea") &&
+                !ele.attributes["contenteditable"] &&
+                !(((_a = ele.classList) === null || _a === void 0 ? void 0 : _a.length) && ele.classList[0] === "mzf_bdlink"));
         },
         forceContext: function (ele) {
             return !ele.matches("a");

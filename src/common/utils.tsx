@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-03-10 19:46:39
+ * @LastEditTime: 2023-03-13 22:34:15
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
@@ -44,7 +44,13 @@ function addBdlinkWrap() {
     wrap: "a",
     wrapClass: "mzf_bdlink",
     filterElements: function (ele) {
-      return !(ele.classList?.length && ele.classList[0] === "mzf_bdlink");
+      // 过滤可编辑的dom元素
+      return (
+        ele.matches &&
+        !ele.matches("a, input, textarea") &&
+        !ele.attributes["contenteditable"] &&
+        !(ele.classList?.length && ele.classList[0] === "mzf_bdlink")
+      );
     },
     forceContext: function (ele) {
       return !ele.matches("a");
