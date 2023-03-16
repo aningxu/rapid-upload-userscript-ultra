@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.0.8
+// @version         1.0.9
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -15807,12 +15807,12 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-03-10 20:20:13
+ * @LastEditTime: 2023-03-16 14:10:39
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var version = "1.0.8";
+var version = "1.0.9";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var donatePage = "https://afdian.net/@mengzonefire";
@@ -15826,8 +15826,8 @@ var globalConfig = GM_getValue("globalConfig") || {
 var ajaxError = 514; // 自定义ajax请求失败时的错误码(不能与http statusCode冲突)
 var retryMax_apiV2 = 4; // v2转存接口的最大重试次数
 var illegalPathPattern = /[\\":*?<>|]/g; // 匹配路径中的非法字符
-var create_url = "https://pan.baidu.com/rest/2.0/xpan/file?method=create";
-var precreate_url = "https://pan.baidu.com/rest/2.0/xpan/file?method=precreate";
+var create_url = "https://pan.baidu.com/api/create";
+var precreate_url = "https://pan.baidu.com/api/precreate";
 var bdstoken_url = "https://pan.baidu.com/api/gettemplatevariable?fields=[%22bdstoken%22]";
 var syncPathPrefix = "/_pcs_.workspace";
 var syncUrlPrefix = "https://pan.baidu.com/disk/synchronization#/index?category=all&path=";

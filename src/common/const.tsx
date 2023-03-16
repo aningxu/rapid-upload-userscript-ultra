@@ -1,13 +1,13 @@
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-03-10 20:20:13
+ * @LastEditTime: 2023-03-16 14:10:39
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 
 export const TAG = "[秒传链接提取Ultra by mengzonefire]";
-export const version = "1.0.8";
+export const version = "1.0.9";
 export const donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 export const feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 export const donatePage = "https://afdian.net/@mengzonefire";
@@ -22,9 +22,9 @@ export const ajaxError = 514; // 自定义ajax请求失败时的错误码(不能
 export const retryMax_apiV2 = 4; // v2转存接口的最大重试次数
 export const illegalPathPattern = /[\\":*?<>|]/g; // 匹配路径中的非法字符
 export const create_url =
-  "https://pan.baidu.com/rest/2.0/xpan/file?method=create";
+  "https://pan.baidu.com/api/create";
 export const precreate_url =
-  "https://pan.baidu.com/rest/2.0/xpan/file?method=precreate";
+  "https://pan.baidu.com/api/precreate";
 export const bdstoken_url =
   "https://pan.baidu.com/api/gettemplatevariable?fields=[%22bdstoken%22]";
 export const syncPathPrefix = "/_pcs_.workspace";
