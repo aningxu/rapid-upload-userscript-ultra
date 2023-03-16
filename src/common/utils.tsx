@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-03-13 22:34:15
+ * @LastEditTime: 2023-03-17 00:50:23
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
@@ -19,6 +19,7 @@ import {
 } from "./const";
 import $ from "jquery";
 import { swalInstance } from "./context";
+import { DuParser } from "./duParser";
 
 /**
  * @description: 秒传链接dom对象点击回调
@@ -47,7 +48,7 @@ function addBdlinkWrap() {
       // 过滤可编辑的dom元素
       return (
         ele.matches &&
-        !ele.matches("a, input, textarea") &&
+        !ele.matches("input, textarea") &&
         !ele.attributes["contenteditable"] &&
         !(ele.classList?.length && ele.classList[0] === "mzf_bdlink")
       );
@@ -55,6 +56,21 @@ function addBdlinkWrap() {
     forceContext: function (ele) {
       return !ele.matches("a");
     },
+  });
+  $('input[readonly][type="text"][bdlink!="true"]').each(function (
+    _i,
+    element
+  ) {
+    if (element.value && DuParser.parse(element.value).length) {
+      $(element)
+        .attr("bdlink", "true")
+        .css("color", "#0070af")
+        .css("cursor", "pointer")
+        .css("text-decoration", "underline")
+        .on("click", () => {
+          swalInstance.inputView(element.value);
+        });
+    }
   });
 }
 
