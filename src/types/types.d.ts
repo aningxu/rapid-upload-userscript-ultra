@@ -18,4 +18,7 @@ declare global {
   interface Document {
     getEventListeners: any;
   }
+  interface String {
+    fromBase64: any;
+  }
 }

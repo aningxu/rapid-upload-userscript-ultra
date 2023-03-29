@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-03-17 00:50:23
+ * @LastEditTime: 2023-03-29 23:58:08
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
@@ -19,18 +19,21 @@ import {
 } from "./const";
 import $ from "jquery";
 import { swalInstance } from "./context";
-import { DuParser } from "./duParser";
+import { DuParser, parseQueryLink } from "./duParser";
 
 /**
  * @description: 秒传链接dom对象点击回调
  * @param {*} ele 触发的dom对象
  */
 export function ATAGListener(ele: any): void {
-  let bdlinkList = [ele.target.innerText];
+  let bdlinkList = [
+    parseQueryLink(ele.target.innerText) || ele.target.innerText,
+  ];
   $(ele.target)
     .siblings("a.mzf_bdlink")
     .each(function () {
-      bdlinkList.push($(this).text());
+      let text = $(this).text();
+      bdlinkList.push(parseQueryLink(text) || text);
     });
   swalInstance.inputView(bdlinkList.join("\n"));
 }
@@ -40,7 +43,7 @@ export function ATAGListener(ele: any): void {
  */
 function addBdlinkWrap() {
   findAndReplaceDOMText(document.body, {
-    find: /([\da-f]{9}[\da-z][\da-f]{22})#(?:([\da-f]{32})#)?([\d]{1,20})#(.+)/gi,
+    find: /(([\da-f]{9}[\da-z][\da-f]{22})#(?:([\da-f]{32})#)?([\d]{1,20})#(.+))|(https:\/\/pan.baidu.com\/#bdlink=([\da-zA-Z+/=]+))/gi,
     portionMode: "first",
     wrap: "a",
     wrapClass: "mzf_bdlink",

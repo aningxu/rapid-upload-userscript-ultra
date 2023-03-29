@@ -1,13 +1,13 @@
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-03-17 00:11:32
+ * @LastEditTime: 2023-03-29 23:50:17
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 
 export const TAG = "[秒传链接提取Ultra by mengzonefire]";
-export const version = "1.1.0";
+export const version = "1.1.1";
 export const donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 export const feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 export const donatePage = "https://afdian.net/@mengzonefire";
@@ -21,10 +21,10 @@ export const globalConfig: Config = GM_getValue("globalConfig") || {
 export const ajaxError = 514; // 自定义ajax请求失败时的错误码(不能与http statusCode冲突)
 export const retryMax_apiV2 = 4; // v2转存接口的最大重试次数
 export const illegalPathPattern = /[\\":*?<>|]/g; // 匹配路径中的非法字符
-export const create_url =
-  "https://pan.baidu.com/api/create";
-export const precreate_url =
-  "https://pan.baidu.com/api/precreate";
+export const bdlinkPattern =
+  /https:\/\/pan.baidu.com\/#bdlink=([\da-zA-Z+/=]+)/; // b64可能出现的字符: 大小写字母a-zA-Z, 数字0-9, +, /, = (=用于末尾补位)
+export const create_url = "https://pan.baidu.com/api/create";
+export const precreate_url = "https://pan.baidu.com/api/precreate";
 export const bdstoken_url =
   "https://pan.baidu.com/api/gettemplatevariable?fields=[%22bdstoken%22]";
 export const syncPathPrefix = "/_pcs_.workspace";

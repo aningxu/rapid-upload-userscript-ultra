@@ -1,12 +1,13 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-03-10 20:20:33
+ * @LastEditTime: 2023-03-29 23:48:24
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
 
 import $ from "jquery";
+import { Base64 } from "js-base64";
 import appCss from "@/css/app.css";
 import appSCss from "@/css/app.scss";
 import { ATAGListener, run, getBdstoken } from "./common/utils";
@@ -22,6 +23,8 @@ import { swalInstance } from "./common/context";
 
 function inital(): void {
   console.info("%s version: %s 正在运行", TAG, version);
+  // 添加b64拓展
+  Base64.extendString();
   // 添加swal参数以防止部分页面下body样式突变(现象: 点开弹窗后原页面样式会突然变化)
   swalInstance.swalGlobalArgs = {
     heightAuto: false,

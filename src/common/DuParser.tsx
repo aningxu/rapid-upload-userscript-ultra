@@ -1,13 +1,21 @@
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-26 12:01:28
- * @LastEditTime: 2023-02-11 21:56:37
+ * @LastEditTime: 2023-03-30 00:11:32
  * @LastEditors: mengzonefire
  * @Description: 各种解析器
  */
 
+import { bdlinkPattern } from "@/common/const";
 import { decryptMd5 } from "./utils";
 
+/**
+ * @description: 从url中解析秒传链接
+ */
+export function parseQueryLink(url: string): string {
+  let bdlinkB64 = url.match(bdlinkPattern);
+  return bdlinkB64 ? bdlinkB64[1].fromBase64() : "";
+}
 /**
  * @description: 秒传链接解析器
  */
