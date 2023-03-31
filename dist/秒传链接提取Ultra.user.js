@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.1.1
+// @version         1.1.2
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -16105,12 +16105,12 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-03-29 23:50:17
+ * @LastEditTime: 2023-03-31 09:59:01
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var const_version = "1.1.1";
+var const_version = "1.1.2";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var donatePage = "https://afdian.net/@mengzonefire";
@@ -16358,7 +16358,7 @@ function precreateFileV2(file, onResponsed, onFailed) {
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-26 12:01:28
- * @LastEditTime: 2023-03-29 23:43:19
+ * @LastEditTime: 2023-03-30 00:11:32
  * @LastEditors: mengzonefire
  * @Description: 各种解析器
  */
@@ -16715,7 +16715,7 @@ var swalInstance = new SwalBase(new rapiduploadTask());
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-03-29 23:58:08
+ * @LastEditTime: 2023-03-31 09:58:08
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
@@ -16737,7 +16737,9 @@ function ATAGListener(ele) {
         .siblings("a.mzf_bdlink")
         .each(function () {
         var text = jquery_default()(this).text();
-        bdlinkList.push(parseQueryLink(text) || text);
+        text = parseQueryLink(text) || text;
+        if (!bdlinkList.includes(text))
+            bdlinkList.push(text);
     });
     swalInstance.inputView(bdlinkList.join("\n"));
 }

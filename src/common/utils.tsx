@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-03-29 23:58:08
+ * @LastEditTime: 2023-03-31 09:58:08
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
@@ -33,7 +33,8 @@ export function ATAGListener(ele: any): void {
     .siblings("a.mzf_bdlink")
     .each(function () {
       let text = $(this).text();
-      bdlinkList.push(parseQueryLink(text) || text);
+      text = parseQueryLink(text) || text;
+      if (!bdlinkList.includes(text)) bdlinkList.push(text);
     });
   swalInstance.inputView(bdlinkList.join("\n"));
 }
