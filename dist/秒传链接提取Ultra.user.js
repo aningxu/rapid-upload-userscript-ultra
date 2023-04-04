@@ -16947,7 +16947,7 @@ function run() {
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-04-05 06:57:00
+ * @LastEditTime: 2023-04-05 07:25:09
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
@@ -16980,15 +16980,15 @@ function inital() {
     // 预先绑定好按钮事件
     jquery_default()(document).on("click", "a.mzf_bdlink", ATAGListener);
     jquery_default()(document).on("click", "#mzf_kill_donate", function () {
-        GM_setValue("".concat(feedbackVer, "_kill_donate"), true);
+        GM_setValue("".concat(donateVer, "_kill_donate"), true);
         jquery_default()("#mzf_donate").remove();
     }); // 赞助提示 "不再显示" 按钮
     jquery_default()(document).on("click", "#mzf_kill_feedback", function () {
-        GM_setValue("".concat(donateVer, "_kill_feedback"), true);
+        GM_setValue("".concat(feedbackVer, "_kill_feedback"), true);
         jquery_default()("#mzf_feedback").remove();
     }); // 反馈提示 "不再显示" 按钮
     jquery_default()(document).on("click", "#mzf_kill_referral", function () {
-        GM_setValue("".concat(donateVer, "_kill_referral"), true);
+        GM_setValue("".concat(referralVer, "_kill_referral"), true);
         jquery_default()("#mzf_referral").remove();
     }); // 网盘会员推广 "不再显示" 按钮
     jquery_default()(document).on("click", "#copy_fail_list", function (btn) {

@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-04-05 06:57:00
+ * @LastEditTime: 2023-04-05 07:25:09
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
@@ -16,6 +16,7 @@ import {
   feedbackVer,
   globalConfig,
   homePage,
+  referralVer,
   TAG,
   version,
 } from "./common/const";
@@ -46,15 +47,15 @@ function inital(): void {
   // 预先绑定好按钮事件
   $(document).on("click", "a.mzf_bdlink", ATAGListener);
   $(document).on("click", "#mzf_kill_donate", function () {
-    GM_setValue(`${feedbackVer}_kill_donate`, true);
+    GM_setValue(`${donateVer}_kill_donate`, true);
     $("#mzf_donate").remove();
   }); // 赞助提示 "不再显示" 按钮
   $(document).on("click", "#mzf_kill_feedback", function () {
-    GM_setValue(`${donateVer}_kill_feedback`, true);
+    GM_setValue(`${feedbackVer}_kill_feedback`, true);
     $("#mzf_feedback").remove();
   }); // 反馈提示 "不再显示" 按钮
   $(document).on("click", "#mzf_kill_referral", function () {
-    GM_setValue(`${donateVer}_kill_referral`, true);
+    GM_setValue(`${referralVer}_kill_referral`, true);
     $("#mzf_referral").remove();
   }); // 网盘会员推广 "不再显示" 按钮
   $(document).on("click", "#copy_fail_list", (btn) => {
