@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-25 08:34:46
- * @LastEditTime: 2023-02-19 13:34:09
+ * @LastEditTime: 2023-04-04 16:59:28
  * @LastEditors: mengzonefire
  * @Description: 定义全套的前台弹窗逻辑, 在Swal的回调函数内调用***Task类内定义的任务代码
  */
@@ -19,9 +19,9 @@ import {
   htmlDonate,
   htmlFeedback,
 } from "./const";
-import RapiduploadTask from "./RapiduploadTask";
+import RapiduploadTask from "./rapiduploadTask";
 import { DuParser } from "./duParser";
-import { SwalConfig } from "./SwalConfig";
+import { SwalConfig } from "./swalConfig";
 import { parsefileInfo } from "./utils";
 import Swal from "sweetalert2";
 import $ from "jquery";
@@ -68,7 +68,7 @@ export default class Swalbase {
       }
       if (!globalConfig.bdstoken) {
         Swal.showValidationMessage(
-          `<p>请先登录 <a href="https://pan.baidu.com/" ${linkStyle}>百度网盘</a></p>, 再刷新此页面`
+          `<p>请先登录 <a href="https://pan.baidu.com/" ${linkStyle}>百度网盘</a>, 再刷新此页面</p>`
         );
         return false;
       }

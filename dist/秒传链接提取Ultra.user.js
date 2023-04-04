@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.1.2
+// @version         1.1.3
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -35,7 +35,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 486:
+/***/ 302:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -15631,7 +15631,7 @@ if (typeof this !== 'undefined' && this.Sweetalert2){this.swal = this.sweetAlert
 /***/ 65:
 /***/ ((module) => {
 
-module.exports = ".mzf_btn{text-align:center !important;font-size:.85em !important;color:#09aaff !important;border:2px solid #c3eaff !important;border-radius:4px !important;margin-left:5px !important;padding:10px !important;padding-top:5px !important;padding-bottom:5px !important;cursor:pointer !important}.mzf_btn2{text-align:center !important;color:#09aaff !important;margin-left:5px !important;cursor:pointer !important}.mzf_link{font-family:inherit !important;color:#09aaff !important;text-decoration:none !important;vertical-align:baseline !important}.mzf_text{font-feature-settings:\"lnum\" !important;-webkit-font-smoothing:antialiased !important;font-family:inherit !important;color:#545454 !important;font-weight:400 !important;word-break:break-word !important;-webkit-tap-highlight-color:rgba(0,0,0,0) !important;margin:0 !important;padding:0 !important;width:100% !important;height:34px !important;display:block !important;line-height:34px !important;text-align:center !important;white-space:nowrap !important}.mzf_arrow{margin-right:5px !important;transform:rotate(180deg) !important;transition:transform .2s !important;fill:none !important;stroke:gray !important}.mzf_details{cursor:pointer !important}.mzf_content{max-height:0 !important;margin:0 !important;transition:max-height .5s !important;overflow:hidden !important}.mzf_details[open]>summary>svg{transform:rotate(0deg) !important}.mzf_details[open]+.mzf_content{max-height:100% !important}.mzf_html_container{grid-template-columns:minmax(0, 100%) !important;align-self:center !important;justify-self:center !important;width:32em !important;max-width:100% !important}.mzf_updateInfo{border:1px #000 !important;width:100% !important;margin:0 auto !important}.mzf_updateInfo span{vertical-align:baseline !important}.mzf_bdlink{font-family:inherit !important;word-break:break-all !important;text-decoration:underline !important;cursor:pointer !important;color:#0070af !important}"
+module.exports = ".mzf_btn{text-align:center !important;font-size:.85em !important;color:#09aaff !important;border:2px solid #c3eaff !important;border-radius:4px !important;margin-left:5px !important;padding:10px !important;padding-top:5px !important;padding-bottom:5px !important;cursor:pointer !important}.mzf_btn2{text-align:center !important;color:#09aaff !important;margin-left:5px !important;cursor:pointer !important}.mzf_link{font-family:inherit !important;color:#09aaff !important;text-decoration:none !important;vertical-align:baseline !important}.mzf_text{font-feature-settings:\"lnum\" !important;-webkit-font-smoothing:antialiased !important;font-family:inherit !important;color:#545454 !important;font-weight:400 !important;word-break:break-word !important;-webkit-tap-highlight-color:rgba(0,0,0,0) !important;margin:0 !important;padding:0 !important;width:100% !important;height:34px !important;display:block !important;line-height:34px !important;text-align:center !important;white-space:nowrap !important}.mzf_arrow{margin-right:5px !important;transform:rotate(180deg) !important;transition:transform .2s !important;fill:none !important;stroke:gray !important}.mzf_details{cursor:pointer !important}.mzf_details summary{white-space:nowrap !important}.mzf_content{max-height:0 !important;margin:0 !important;transition:max-height .5s !important;overflow:hidden !important}.mzf_details[open]>summary>svg{transform:rotate(0deg) !important}.mzf_details[open]+.mzf_content{max-height:100% !important}.mzf_html_container{grid-template-columns:minmax(0, 100%) !important;align-self:center !important;justify-self:center !important;width:32em !important;max-width:100% !important}.mzf_updateInfo{border:1px #000 !important;width:100% !important;margin:0 auto !important}.mzf_updateInfo span{vertical-align:baseline !important}.mzf_bdlink{font-family:inherit !important;word-break:break-all !important;text-decoration:underline !important;cursor:pointer !important;color:#0070af !important}"
 
 /***/ }),
 
@@ -16105,12 +16105,12 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-03-31 09:59:01
+ * @LastEditTime: 2023-04-04 16:52:53
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var const_version = "1.1.2";
+var const_version = "1.1.3";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var donatePage = "https://afdian.net/@mengzonefire";
@@ -16150,9 +16150,9 @@ var btnStyle = 'class="mzf_btn" rel="noopener noreferrer" target="_blank"';
 var htmlDonate = "<p id=\"mzf_donate\" class=\"mzf_text\">\u82E5\u559C\u6B22\u8BE5\u811A\u672C, \u53EF\u524D\u5F80 <a href=\"".concat(donatePage, "\" ").concat(linkStyle, ">\u8D5E\u52A9\u9875</a> \u652F\u6301\u4F5C\u8005<a id=\"kill_donate\" class=\"mzf_btn\">\u4E0D\u518D\u663E\u793A</a></p>");
 var htmlFeedback = "<p id=\"mzf_feedback\" class=\"mzf_text\">\u82E5\u6709\u4EFB\u4F55\u7591\u95EE, \u53EF\u524D\u5F80 <a href=\"".concat(homePage, "\" ").concat(linkStyle, ">\u811A\u672C\u4E3B\u9875</a> \u53CD\u9988<a id=\"kill_feedback\" class=\"mzf_btn\">\u4E0D\u518D\u663E\u793A</a></p>");
 var htmlAboutBdlink = "\u4EC0\u4E48\u662F\u4E00\u952E\u79D2\u4F20?: <a href=\"".concat(doc.bdlinkDoc, "\" ").concat(linkStyle, ">\u6587\u6863\u8F7D\u70B91</a> <a href=\"").concat(doc2.bdlinkDoc, "\" ").concat(linkStyle, ">\u6587\u6863\u8F7D\u70B92</a>");
-var copyFailList = '<a id="copy_fail_list" class="mzf_btn2">复制列表</a></p>';
-var copyFailBranchList = '<a id="copy_fail_branch_list" class="mzf_btn2">复制列表</a></p>';
-var copySuccessList = '<a id="copy_success_list" class="mzf_btn2">复制列表</a></p>';
+var copyFailList = '<a id="copy_fail_list" class="mzf_btn2">复制列表</a>';
+var copyFailBranchList = '<a id="copy_fail_branch_list" class="mzf_btn2">复制列表</a>';
+var copySuccessList = '<a id="copy_success_list" class="mzf_btn2">复制列表</a>';
 function baiduErrno(errno) {
     switch (errno) {
         case -6:
@@ -16232,8 +16232,8 @@ function ajax(config, callback, failback) {
         } }));
 }
 
-// EXTERNAL MODULE: ./node_modules/findAndReplaceDOMText/src/findAndReplaceDOMText.js
-var findAndReplaceDOMText = __webpack_require__(486);
+// EXTERNAL MODULE: ./node_modules/findandreplacedomtext/src/findAndReplaceDOMText.js
+var findAndReplaceDOMText = __webpack_require__(302);
 var findAndReplaceDOMText_default = /*#__PURE__*/__webpack_require__.n(findAndReplaceDOMText);
 ;// CONCATENATED MODULE: ./src/common/rapiduploadTask.tsx
 /*
@@ -16403,7 +16403,7 @@ DuParser.parseDu_v4 = function parseDu_v3(szUrl) {
     });
 };
 
-;// CONCATENATED MODULE: ./src/common/SwalConfig.tsx
+;// CONCATENATED MODULE: ./src/common/swalConfig.tsx
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-26 12:16:57
@@ -16446,11 +16446,11 @@ var SwalConfig = {
 // EXTERNAL MODULE: ./node_modules/sweetalert2/dist/sweetalert2.all.js
 var sweetalert2_all = __webpack_require__(455);
 var sweetalert2_all_default = /*#__PURE__*/__webpack_require__.n(sweetalert2_all);
-;// CONCATENATED MODULE: ./src/common/SwalBase.tsx
+;// CONCATENATED MODULE: ./src/common/swalBase.tsx
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-25 08:34:46
- * @LastEditTime: 2023-02-19 13:34:09
+ * @LastEditTime: 2023-04-04 16:59:28
  * @LastEditors: mengzonefire
  * @Description: 定义全套的前台弹窗逻辑, 在Swal的回调函数内调用***Task类内定义的任务代码
  */
@@ -16549,7 +16549,7 @@ var Swalbase = /** @class */ (function () {
                         return false;
                     }
                     if (!globalConfig.bdstoken) {
-                        sweetalert2_all_default().showValidationMessage("<p>\u8BF7\u5148\u767B\u5F55 <a href=\"https://pan.baidu.com/\" ".concat(linkStyle, ">\u767E\u5EA6\u7F51\u76D8</a></p>, \u518D\u5237\u65B0\u6B64\u9875\u9762"));
+                        sweetalert2_all_default().showValidationMessage("<p>\u8BF7\u5148\u767B\u5F55 <a href=\"https://pan.baidu.com/\" ".concat(linkStyle, ">\u767E\u5EA6\u7F51\u76D8</a>, \u518D\u5237\u65B0\u6B64\u9875\u9762</p>"));
                         return false;
                     }
                 };
@@ -16704,18 +16704,18 @@ var Swalbase = /** @class */ (function () {
     };
     return Swalbase;
 }());
-/* harmony default export */ const SwalBase = (Swalbase);
+/* harmony default export */ const swalBase = (Swalbase);
 
 ;// CONCATENATED MODULE: ./src/common/context.tsx
 
 
-var swalInstance = new SwalBase(new rapiduploadTask());
+var swalInstance = new swalBase(new rapiduploadTask());
 
 ;// CONCATENATED MODULE: ./src/common/utils.tsx
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-03-31 09:58:08
+ * @LastEditTime: 2023-04-04 16:29:19
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */

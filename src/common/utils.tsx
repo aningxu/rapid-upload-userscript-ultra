@@ -1,13 +1,13 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-03-31 09:58:08
+ * @LastEditTime: 2023-04-04 16:29:19
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
 
 import ajax from "@/common/ajax";
-import findAndReplaceDOMText from "findAndReplaceDOMText";
+import findAndReplaceDOMText from "findandreplacedomtext";
 import {
   baiduErrno,
   bdstoken_url,
