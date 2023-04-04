@@ -1,17 +1,19 @@
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-04-04 16:52:53
+ * @LastEditTime: 2023-04-05 07:13:01
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 
 export const TAG = "[秒传链接提取Ultra by mengzonefire]";
-export const version = "1.1.3";
+export const version = "1.1.4";
 export const donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 export const feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
+export const referralVer = "1.0.0"; // 用于检测可关闭的推广提示的版本号
 export const donatePage = "https://afdian.net/@mengzonefire";
 export const homePage = "https://greasyfork.org/zh-CN/scripts/459862";
+export const referralPage = "https://snsyun.baidu.com/sl/eQlxlz8";
 const defaultRunInterval = 2; // 默认脚本执行间隔
 export const globalConfig: Config = GM_getValue("globalConfig") || {
   runInterval: defaultRunInterval,
@@ -52,8 +54,9 @@ export const linkStyle =
   'class="mzf_link" rel="noopener noreferrer" target="_blank"';
 export const btnStyle =
   'class="mzf_btn" rel="noopener noreferrer" target="_blank"';
-export const htmlDonate = `<p id="mzf_donate" class="mzf_text">若喜欢该脚本, 可前往 <a href="${donatePage}" ${linkStyle}>赞助页</a> 支持作者<a id="kill_donate" class="mzf_btn">不再显示</a></p>`;
-export const htmlFeedback = `<p id="mzf_feedback" class="mzf_text">若有任何疑问, 可前往 <a href="${homePage}" ${linkStyle}>脚本主页</a> 反馈<a id="kill_feedback" class="mzf_btn">不再显示</a></p>`;
+export const htmlDonate = `<p id="mzf_donate" class="mzf_text">若喜欢该脚本, 可前往 <a href="${donatePage}" ${linkStyle}>赞助页</a> 支持作者<a id="mzf_kill_donate" class="mzf_btn">不再显示</a></p>`;
+export const htmlFeedback = `<p id="mzf_feedback" class="mzf_text">若有任何疑问, 可前往 <a href="${homePage}" ${linkStyle}>脚本主页</a> 反馈<a id="mzf_kill_feedback" class="mzf_btn">不再显示</a></p>`;
+export const htmlReferral = `<p id="mzf_referral" class="mzf_text">(百度官方推广) <a href="${referralPage}" ${linkStyle}>优惠开通网盘会员</a><a id="mzf_kill_referral" class="mzf_btn">不再显示</a></p>`;
 export const htmlAboutBdlink = `什么是一键秒传?: <a href="${doc.bdlinkDoc}" ${linkStyle}>文档载点1</a> <a href="${doc2.bdlinkDoc}" ${linkStyle}>文档载点2</a>`;
 export const copyFailList =
   '<a id="copy_fail_list" class="mzf_btn2">复制列表</a>';

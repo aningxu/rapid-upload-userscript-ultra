@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.1.3
+// @version         1.1.4
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -30,6 +30,7 @@
 // @connect         pan.baidu.com
 // @downloadURL     https://greasyfork.org/scripts/459862/code/%E7%A7%92%E4%BC%A0%E9%93%BE%E6%8E%A5%E6%8F%90%E5%8F%96Ultra.user.js
 // @updateURL       https://greasyfork.org/scripts/459862/code/%E7%A7%92%E4%BC%A0%E9%93%BE%E6%8E%A5%E6%8F%90%E5%8F%96Ultra.user.js
+// @antifeature     referral-link 23.4.5: 加了一个百度官方的网盘会员推广 (从那里开通可使作者获得佣金), 觉得碍眼可以点 "不再显示" 永久隐藏
 // ==/UserScript==
 
 /******/ (() => { // webpackBootstrap
@@ -16105,16 +16106,18 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-04-04 16:52:53
+ * @LastEditTime: 2023-04-05 07:13:01
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var const_version = "1.1.3";
+var const_version = "1.1.4";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
+var referralVer = "1.0.0"; // 用于检测可关闭的推广提示的版本号
 var donatePage = "https://afdian.net/@mengzonefire";
 var homePage = "https://greasyfork.org/zh-CN/scripts/459862";
+var referralPage = "https://snsyun.baidu.com/sl/eQlxlz8";
 var defaultRunInterval = 2; // 默认脚本执行间隔
 var globalConfig = GM_getValue("globalConfig") || {
     runInterval: defaultRunInterval,
@@ -16147,8 +16150,9 @@ var doc2 = {
 }; // 文档载点2
 var linkStyle = 'class="mzf_link" rel="noopener noreferrer" target="_blank"';
 var btnStyle = 'class="mzf_btn" rel="noopener noreferrer" target="_blank"';
-var htmlDonate = "<p id=\"mzf_donate\" class=\"mzf_text\">\u82E5\u559C\u6B22\u8BE5\u811A\u672C, \u53EF\u524D\u5F80 <a href=\"".concat(donatePage, "\" ").concat(linkStyle, ">\u8D5E\u52A9\u9875</a> \u652F\u6301\u4F5C\u8005<a id=\"kill_donate\" class=\"mzf_btn\">\u4E0D\u518D\u663E\u793A</a></p>");
-var htmlFeedback = "<p id=\"mzf_feedback\" class=\"mzf_text\">\u82E5\u6709\u4EFB\u4F55\u7591\u95EE, \u53EF\u524D\u5F80 <a href=\"".concat(homePage, "\" ").concat(linkStyle, ">\u811A\u672C\u4E3B\u9875</a> \u53CD\u9988<a id=\"kill_feedback\" class=\"mzf_btn\">\u4E0D\u518D\u663E\u793A</a></p>");
+var htmlDonate = "<p id=\"mzf_donate\" class=\"mzf_text\">\u82E5\u559C\u6B22\u8BE5\u811A\u672C, \u53EF\u524D\u5F80 <a href=\"".concat(donatePage, "\" ").concat(linkStyle, ">\u8D5E\u52A9\u9875</a> \u652F\u6301\u4F5C\u8005<a id=\"mzf_kill_donate\" class=\"mzf_btn\">\u4E0D\u518D\u663E\u793A</a></p>");
+var htmlFeedback = "<p id=\"mzf_feedback\" class=\"mzf_text\">\u82E5\u6709\u4EFB\u4F55\u7591\u95EE, \u53EF\u524D\u5F80 <a href=\"".concat(homePage, "\" ").concat(linkStyle, ">\u811A\u672C\u4E3B\u9875</a> \u53CD\u9988<a id=\"mzf_kill_feedback\" class=\"mzf_btn\">\u4E0D\u518D\u663E\u793A</a></p>");
+var htmlReferral = "<p id=\"mzf_referral\" class=\"mzf_text\">(\u767E\u5EA6\u5B98\u65B9\u63A8\u5E7F) <a href=\"".concat(referralPage, "\" ").concat(linkStyle, ">\u4F18\u60E0\u5F00\u901A\u7F51\u76D8\u4F1A\u5458</a><a id=\"mzf_kill_referral\" class=\"mzf_btn\">\u4E0D\u518D\u663E\u793A</a></p>");
 var htmlAboutBdlink = "\u4EC0\u4E48\u662F\u4E00\u952E\u79D2\u4F20?: <a href=\"".concat(doc.bdlinkDoc, "\" ").concat(linkStyle, ">\u6587\u6863\u8F7D\u70B91</a> <a href=\"").concat(doc2.bdlinkDoc, "\" ").concat(linkStyle, ">\u6587\u6863\u8F7D\u70B92</a>");
 var copyFailList = '<a id="copy_fail_list" class="mzf_btn2">复制列表</a>';
 var copyFailBranchList = '<a id="copy_fail_branch_list" class="mzf_btn2">复制列表</a>';
@@ -16450,7 +16454,7 @@ var sweetalert2_all_default = /*#__PURE__*/__webpack_require__.n(sweetalert2_all
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-25 08:34:46
- * @LastEditTime: 2023-04-04 16:59:28
+ * @LastEditTime: 2023-04-05 07:01:55
  * @LastEditors: mengzonefire
  * @Description: 定义全套的前台弹窗逻辑, 在Swal的回调函数内调用***Task类内定义的任务代码
  */
@@ -16626,8 +16630,10 @@ var Swalbase = /** @class */ (function () {
         var htmlFooter = "";
         if (!GM_getValue("".concat(donateVer, "_kill_donate")))
             htmlFooter += htmlDonate; // 添加赞助入口提示
-        if (!GM_getValue("".concat(feedbackVer, "_kill_donate")))
+        if (!GM_getValue("".concat(feedbackVer, "_kill_feedback")))
             htmlFooter += htmlFeedback; // 添加反馈入口提示
+        if (!GM_getValue("".concat(referralVer, "_kill_referral")))
+            htmlFooter += htmlReferral; // 添加网盘推广入口提示
         if (htmlFooter)
             htmlFooter = "<br>" + htmlFooter; // 添加底部空行分隔
         var swalArg = {
@@ -16941,7 +16947,7 @@ function run() {
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-03-29 23:48:24
+ * @LastEditTime: 2023-04-05 06:57:00
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
@@ -16973,14 +16979,18 @@ function inital() {
     GM_addStyle((css_app_default()));
     // 预先绑定好按钮事件
     jquery_default()(document).on("click", "a.mzf_bdlink", ATAGListener);
-    jquery_default()(document).on("click", "#kill_donate", function () {
+    jquery_default()(document).on("click", "#mzf_kill_donate", function () {
         GM_setValue("".concat(feedbackVer, "_kill_donate"), true);
         jquery_default()("#mzf_donate").remove();
     }); // 赞助提示 "不再显示" 按钮
-    jquery_default()(document).on("click", "#kill_feedback", function () {
+    jquery_default()(document).on("click", "#mzf_kill_feedback", function () {
         GM_setValue("".concat(donateVer, "_kill_feedback"), true);
         jquery_default()("#mzf_feedback").remove();
     }); // 反馈提示 "不再显示" 按钮
+    jquery_default()(document).on("click", "#mzf_kill_referral", function () {
+        GM_setValue("".concat(donateVer, "_kill_referral"), true);
+        jquery_default()("#mzf_referral").remove();
+    }); // 网盘会员推广 "不再显示" 按钮
     jquery_default()(document).on("click", "#copy_fail_list", function (btn) {
         var listText = "";
         for (var _i = 0, _a = swalInstance.parseResult.failList; _i < _a.length; _i++) {

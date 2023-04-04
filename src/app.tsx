@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-04 14:51:19
- * @LastEditTime: 2023-03-29 23:48:24
+ * @LastEditTime: 2023-04-05 06:57:00
  * @LastEditors: mengzonefire
  * @Description: 主函数入口
  */
@@ -45,14 +45,18 @@ function inital(): void {
   GM_addStyle(appSCss);
   // 预先绑定好按钮事件
   $(document).on("click", "a.mzf_bdlink", ATAGListener);
-  $(document).on("click", "#kill_donate", function () {
+  $(document).on("click", "#mzf_kill_donate", function () {
     GM_setValue(`${feedbackVer}_kill_donate`, true);
     $("#mzf_donate").remove();
   }); // 赞助提示 "不再显示" 按钮
-  $(document).on("click", "#kill_feedback", function () {
+  $(document).on("click", "#mzf_kill_feedback", function () {
     GM_setValue(`${donateVer}_kill_feedback`, true);
     $("#mzf_feedback").remove();
   }); // 反馈提示 "不再显示" 按钮
+  $(document).on("click", "#mzf_kill_referral", function () {
+    GM_setValue(`${donateVer}_kill_referral`, true);
+    $("#mzf_referral").remove();
+  }); // 网盘会员推广 "不再显示" 按钮
   $(document).on("click", "#copy_fail_list", (btn) => {
     let listText = "";
     for (let item of swalInstance.parseResult.failList)
