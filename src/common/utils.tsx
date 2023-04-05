@@ -1,7 +1,7 @@
 /*
  * @Author: mengzonefire
  * @Date: 2023-02-08 21:13:07
- * @LastEditTime: 2023-04-04 16:29:19
+ * @LastEditTime: 2023-04-05 21:56:18
  * @LastEditors: mengzonefire
  * @Description: 存放工具函数
  */
@@ -52,6 +52,7 @@ function addBdlinkWrap() {
       // 过滤可编辑的dom元素
       return (
         ele.matches &&
+        getComputedStyle(ele).cursor != "text" &&
         !ele.matches("input, textarea") &&
         !ele.attributes["contenteditable"] &&
         !(ele.classList?.length && ele.classList[0] === "mzf_bdlink")
