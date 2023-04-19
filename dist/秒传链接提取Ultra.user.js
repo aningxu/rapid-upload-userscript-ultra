@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.1.6
+// @version         1.1.7
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -19,6 +19,9 @@
 // @compatible      chrome Tampermonkey
 // @compatible      edge Violentmonkey
 // @compatible      edge Tampermonkey
+// @exclude         *://pan.baidu.com/*
+// @exclude         *://yun.baidu.com/*
+// @exclude         *://wangpan.baidu.com/*
 // @grant           GM_setClipboard
 // @grant           GM_openInTab
 // @grant           GM_setValue
@@ -15639,7 +15642,7 @@ module.exports = ".mzf_btn{text-align:center !important;font-size:.85em !importa
 /***/ 149:
 /***/ ((module) => {
 
-module.exports = "/*自定义单选框样式*/\n.mzf_check {\n  display: inline-block !important;\n  background-color: white !important;\n  border-radius: 5px !important;\n  border: 1px solid #d3d3d3 !important;\n  width: 20px !important;\n  height: 20px !important;\n  text-align: center !important;\n  vertical-align: middle !important;\n  line-height: 20px !important;\n  margin-left: 10px !important;\n}\n.mzf_check_ori:checked + .mzf_check {\n  background-color: #eee !important;\n}\n.mzf_check_ori:checked + .mzf_check::after {\n  content: \"✓\" !important;\n}\n.mzf_check_ori {\n  display: none !important;\n}\n"
+module.exports = "/*自定义单选框样式*/\r\n.mzf_check {\r\n  display: inline-block !important;\r\n  background-color: white !important;\r\n  border-radius: 5px !important;\r\n  border: 1px solid #d3d3d3 !important;\r\n  width: 20px !important;\r\n  height: 20px !important;\r\n  text-align: center !important;\r\n  vertical-align: middle !important;\r\n  line-height: 20px !important;\r\n  margin-left: 10px !important;\r\n}\r\n.mzf_check_ori:checked + .mzf_check {\r\n  background-color: #eee !important;\r\n}\r\n.mzf_check_ori:checked + .mzf_check::after {\r\n  content: \"✓\" !important;\r\n}\r\n.mzf_check_ori {\r\n  display: none !important;\r\n}\r\n"
 
 /***/ })
 
@@ -16106,12 +16109,12 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
 /*
  * @Author: mengzonefire
  * @Date: 2022-10-20 10:36:43
- * @LastEditTime: 2023-04-05 21:47:41
+ * @LastEditTime: 2023-04-19 22:45:36
  * @LastEditors: mengzonefire
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var const_version = "1.1.6";
+var const_version = "1.1.7";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var referralVer = "1.0.0"; // 用于检测可关闭的推广提示的版本号

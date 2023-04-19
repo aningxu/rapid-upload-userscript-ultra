@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.1.6
+// @version         1.1.7
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -19,6 +19,9 @@
 // @compatible      chrome Tampermonkey
 // @compatible      edge Violentmonkey
 // @compatible      edge Tampermonkey
+// @exclude         *://pan.baidu.com/*
+// @exclude         *://yun.baidu.com/*
+// @exclude         *://wangpan.baidu.com/*
 // @grant           GM_setClipboard
 // @grant           GM_openInTab
 // @grant           GM_setValue

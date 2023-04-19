@@ -91,6 +91,11 @@ module.exports = {
           "edge Tampermonkey",
         ],
         match: ["*://**/*"],
+        exclude: [
+          "*://pan.baidu.com/*",
+          "*://yun.baidu.com/*",
+          "*://wangpan.baidu.com/*",
+        ],
         grant: [
           "GM_setClipboard",
           "GM_openInTab",
