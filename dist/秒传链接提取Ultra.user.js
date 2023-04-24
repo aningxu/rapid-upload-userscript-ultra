@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            秒传链接提取Ultra
-// @version         1.1.7
+// @version         1.1.8
 // @author          mengzonefire
 // @description     快速转存网页上的百度网盘秒传链接
 // @homepage        https://greasyfork.org/zh-CN/scripts/459862
@@ -16114,7 +16114,7 @@ var css_app_default = /*#__PURE__*/__webpack_require__.n(css_app);
  * @Description: 存放各种全局常量对象
  */
 var TAG = "[秒传链接提取Ultra by mengzonefire]";
-var const_version = "1.1.7";
+var const_version = "1.1.8";
 var donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 var feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 var referralVer = "1.0.0"; // 用于检测可关闭的推广提示的版本号
@@ -16246,7 +16246,7 @@ var findAndReplaceDOMText_default = /*#__PURE__*/__webpack_require__.n(findAndRe
 /*
  * @Author: mengzonefire
  * @Date: 2021-08-25 01:30:29
- * @LastEditTime: 2023-02-12 01:56:06
+ * @LastEditTime: 2023-04-24 17:26:34
  * @LastEditors: mengzonefire
  * @Description: 百度网盘 秒传转存任务实现
  */
@@ -16346,7 +16346,10 @@ var RapiduploadTask = /** @class */ (function () {
 }());
 /* harmony default export */ const rapiduploadTask = (RapiduploadTask);
 // 此接口测试结果如下: 错误md5->返回block_list: [0], 正确md5+正确/错误size->返回block_list: []
-function precreateFileV2(file, onResponsed, onFailed) {
+// 23.4.24测试发现此接口也不稳定, 有效md5也有20-30%概率返回block_list: [0], 建议加入retry策略
+function precreateFileV2(file, onResponsed, onFailed, retry) {
+    var _this = this;
+    if (retry === void 0) { retry = 0; }
     ajax({
         url: "".concat(precreate_url).concat(this.bdstoken && "&bdstoken=" + this.bdstoken),
         method: "POST",
@@ -16358,7 +16361,17 @@ function precreateFileV2(file, onResponsed, onFailed) {
             isdir: 0,
             autoinit: 1,
         }),
-    }, onResponsed, onFailed);
+    }, function (data) {
+        var _data = data.response;
+        if (0 === _data.errno) {
+            if (0 != _data.block_list.length && retry < retryMax_apiV2)
+                precreateFileV2.call(_this, file, onResponsed, onFailed, ++retry);
+            else
+                onResponsed(data);
+        }
+        else
+            onResponsed(data);
+    }, onFailed);
 }
 
 ;// CONCATENATED MODULE: ./src/common/duParser.tsx

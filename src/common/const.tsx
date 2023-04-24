@@ -7,7 +7,7 @@
  */
 
 export const TAG = "[秒传链接提取Ultra by mengzonefire]";
-export const version = "1.1.7";
+export const version = "1.1.8";
 export const donateVer = "1.0.0"; // 用于检测可关闭的赞助提示的版本号
 export const feedbackVer = "1.0.0"; // 用于检测可关闭的反馈提示的版本号
 export const referralVer = "1.0.0"; // 用于检测可关闭的推广提示的版本号
